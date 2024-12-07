@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Online Assignment and Grading System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            background-color: #282c34; /* Dark background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-container {
+            width: 90%;
+            max-width: 1000px;
+            background: #ffffff; /* Light background for the card */
+            border-radius: 50px; /* Circular corners for the container */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Theme 1: Modern Minimalist */
+        .modern-minimalist .left-panel {
+            flex: 1;
+            background-color: #4a90e2; /* Light blue background for left panel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 30px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .modern-minimalist .left-panel h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .modern-minimalist .left-panel p {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modern-minimalist .right-panel {
+            flex: 1.5;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f5f5f5; /* Light grey background for right panel */
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .modern-minimalist .right-panel h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #4a90e2; /* Blue text for the title */
+        }
+
+        .modern-minimalist input, .modern-minimalist select {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 25px; /* Circular input and select fields */
+            font-size: 16px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .modern-minimalist button {
+            padding: 15px;
+            border: none;
+            border-radius: 25px; /* Circular button */
+            font-size: 18px;
+            background: #4a90e2;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .modern-minimalist button:hover {
+            background: #357ab7;
+        }
+
+        /* Theme 2: Colorful Gradient */
+        .colorful-gradient .left-panel {
+            flex: 1;
+            background: linear-gradient(45deg, #ff6b6b, #f06595); /* Colorful gradient for left panel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .colorful-gradient .left-panel h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .colorful-gradient .left-panel p {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .colorful-gradient .right-panel {
+            flex: 1.5;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff; /* White background for right panel */
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .colorful-gradient .right-panel h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        .colorful-gradient input, .colorful-gradient select {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 25px; /* Circular input and select fields */
+            font-size: 16px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .colorful-gradient button {
+            padding: 15px;
+            border: none;
+            border-radius: 25px; /* Circular button */
+            font-size: 18px;
+            background: #ff6b6b;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .colorful-gradient button:hover {
+            background: #f06595;
+        }
+
+        /* Theme 3: Neon Glow */
+        .neon-glow .left-panel {
+            flex: 1;
+            background-color: #000000; /* Black background for left panel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #39ff14; /* Neon Green text */
+            text-shadow: 0px 0px 5px #39ff14, 0px 0px 10px #39ff14;
+            padding: 30px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .neon-glow .left-panel h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .neon-glow .left-panel p {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .neon-glow .right-panel {
+            flex: 1.5;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #1a1a1a; /* Dark background for right panel */
+            color: #fff;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .neon-glow .right-panel h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #39ff14;
+        }
+
+        .neon-glow input, .neon-glow select {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #39ff14;
+            border-radius: 25px; /* Circular input and select fields */
+            font-size: 16px;
+            background: #333;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .neon-glow button {
+            padding: 15px;
+            border: none;
+            border-radius: 25px; /* Circular button */
+            font-size: 18px;
+            background: #39ff14;
+            color: #000;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .neon-glow button:hover {
+            background: #32d12b;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                height: 200px;
+                background-position: top center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Example: Modern Minimalist Theme -->
+    <div class="main-container modern-minimalist">
+        <div class="left-panel">
+            <div>
+                <h1>Welcome Back!</h1>
+                <p>Access and manage your assignments, grades, and more efficiently.</p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <h1>Login</h1>
+            <div class="error-message" id="error-message"></div>
+            <form id="login-form">
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <select name="role" required>
+                    <option value="">Select Your Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            var role = document.querySelector('select[name="role"]').value;
+            var errorMessage = document.getElementById('error-message');
+
+            // Clear previous error messages
+            errorMessage.innerHTML = '';
+
+            if (!role) {
+                errorMessage.innerHTML = 'Please select a role.';  // Error if no role is selected
+                return;
+            }
+
+            // Redirect based on role selection
+            switch(role) {
+                case 'admin':
+                    window.location.href = 'admin.jsp';
+                    break;
+                case 'student':
+                    window.location.href = 'student.jsp';
+                    break;
+                case 'teacher':
+                    window.location.href = 'teacher.jsp';
+                    break;
+                default:
+                    alert('Invalid role selected.');
+            }
+        });
+    </script>
+
+</body>
+</html>

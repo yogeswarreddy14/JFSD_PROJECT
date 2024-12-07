@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Assignment and Grading System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            background: url('https://quickcampus.online/blog/wp-content/uploads/2024/04/2-copy-1.png') no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Cover the whole screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #ffffff; /* Light text color for contrast */
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background for contrast */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .card-header {
+            background: linear-gradient(to right, #4f4f4f, #6f6f6f); /* Gradient grey header */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-content p {
+            font-size: 16px;
+            color: #cccccc; /* Light grey text */
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 40%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #b3b3b3; /* Light grey button */
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #999999; /* Slightly darker grey on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(153, 153, 153, 0.3);
+        }
+
+        .decorative-stripe {
+            height: 5px;
+            background: linear-gradient(to right, #666666, #999999); /* Grey gradient stripe */
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                max-width: 90%;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                width: 45%;
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .card-header {
+                font-size: 20px;
+            }
+
+            .card-content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Header with grey gradient background -->
+        <div class="card-header">
+            Online Assignment & Grading System
+        </div>
+
+        <!-- Decorative stripe for visual interest -->
+        <div class="decorative-stripe"></div>
+
+        <!-- Main content -->
+        <div class="card-content">
+            <p>Welcome to the Online Assignment and Grading System. Manage your assignments and grades effortlessly. Get started now!</p>
+
+            <!-- Buttons for navigation -->
+            <div class="button-container">
+                <a href="register.html" class="btn">Sign Up</a>
+                <a href="login.html" class="btn">Log In</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

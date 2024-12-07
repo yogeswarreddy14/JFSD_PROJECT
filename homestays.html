@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homestay Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+            color: #333;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 12px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 12px 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .homestay-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .homestay {
+            flex: 1 1 calc(30% - 20px);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .homestay:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .homestay img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .homestay h3 {
+            font-size: 18px;
+            margin: 15px 0 5px;
+            color: #444;
+        }
+        .homestay p {
+            font-size: 14px;
+            color: #666;
+        }
+        .book-now {
+            display: inline-block;
+            margin: 10px 0 15px;
+            padding: 10px 15px;
+            background: linear-gradient(to right, #ff5f6d, #ffc371);
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .book-now:hover {
+            opacity: 0.9;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .homestay-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .homestay {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Discover Your Perfect Homestay</h1>
+    </header>
+
+    <div class="container">
+        <!-- Section for Searching Homestays -->
+        <div class="section">
+            <h2>Search for Homestays</h2>
+            <input id="searchInput" type="text" placeholder="Enter a location...">
+            <button onclick="searchLocation()">Search</button>
+        </div>
+
+        <!-- Section for Homestay Listings -->
+        <div class="section" id="homestaySection">
+            <h2>Available Homestays</h2>
+            <div class="homestay-list" id="homestayList">
+                <!-- Homestays will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Homestay Platform</p>
+    </footer>
+
+    <script>
+        const data = {
+            Delhi: {
+                homestays: [
+                    { name: 'Delhi Homestay 1', price: '$30/night', img: 'homestay1.jpg' },
+                    { name: 'Delhi Homestay 2', price: '$35/night', img: 'homestay2.jpg' }
+                ]
+            }
+            // Add other locations here
+        };
+
+        function searchLocation() {
+            const location = document.getElementById('searchInput').value.trim();
+            const homestaySection = document.getElementById('homestayList');
+
+            homestaySection.innerHTML = '';
+
+            if (data[location]) {
+                data[location].homestays.forEach(homestay => {
+                    homestaySection.innerHTML += `
+                        <div class="homestay">
+                            <img src="${homestay.img}" alt="${homestay.name}">
+                            <h3>${homestay.name}</h3>
+                            <p>Price: ${homestay.price}</p>
+                            <a href="#" class="book-now">Book Now</a>
+                        </div>
+                    `;
+                });
+            } else {
+                homestaySection.innerHTML = '<p>No homestays found for this location.</p>';
+            }
+        }
+    </script>
+
+</body>
+</html>
